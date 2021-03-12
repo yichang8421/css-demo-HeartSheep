@@ -6,42 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HeartSheep</title>
     <style>
-/* 使用两个长方形交错，然后旋转45度，将一边变圆得到心型图案。        */
-      .heart {
-        position: absolute;
-        margin: auto;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        background-color: pink;
-        height: 50px;
-        width: 50px;
-        transform: rotate(-45deg);
-        /* border:1px solid red; */
-      }
-      .heart::before {
-        background-color: pink;
-        content: "";
-        border-radius: 50%;
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        top: 0px;
-        left: 25px;
-        /* border:1px solid blue; */
-      }
-      .heart::after {
-        content: "";
-        background-color: pink;
-        border-radius: 50%;
-        position: absolute;
-        width: 50px;
-        height: 50px;
-        top: -25px;
-        left: 0px;
-        /* border:1px solid yellowgreen; */
-      }
+        *{margin: 0;padding: 0;box-sizing:border-box;}
+        body{
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          height: 100vh;
+        }
+
+        .heart{
+          /* border:1px solid red; */
+          height: 50px;
+          width: 50px;
+          background:pink;
+          /* transform:rotate(225deg); */
+          transform:rotate(-135deg);
+          transition:all 1s;
+        }
+
+        .heart::before{
+          position:absolute;
+          content:"";
+          height: 50px;
+          width: 50px;
+          /* border:1px solid blue; */
+          background:pink;
+          border-radius:50%;
+          transform:translateX(24px);
+        }
+
+        .heart::after{
+          position:absolute;
+          content:"";
+          height: 50px;
+          width: 50px;
+          /* border:1px solid blue; */
+          background:pink;
+          border-radius:50%;
+          transform:translateY(24px);
+        }
+
+        .heart:hover{
+          transform:rotate(-135deg) scale(1.2);
+        }
     </style>
 </head>
 
